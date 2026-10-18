@@ -164,10 +164,11 @@
             <div class="head"><div><div class="kind">Microservices · UF</div><h3>Event-Driven Order Orchestrator</h3></div><span class="when">Spring 2026</span></div>
             <p>An e-commerce backend split into Order, Payment and Inventory services that keeps data consistent across services with the Saga pattern.</p>
             <ul>
-              <li>Compensating transactions undo earlier steps when a later step fails.</li>
-              <li>Services talk over an event bus, each with its own PostgreSQL database, behind an API gateway with Redis rate limiting.</li>
+              <li>Compensating transactions undo earlier steps when a later step fails; a transactional outbox and idempotent consumers make retries safe.</li>
+              <li>Services talk over Kafka, each with its own PostgreSQL database, behind an API gateway with Redis rate limiting. CI runs the full stack end to end.</li>
             </ul>
-            <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+            <div class="links"><a href="https://github.com/pavanprudhvi02/event-driven-order-orchestrator" target="_blank" rel="noopener">View on GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
           </article>
 
           <article class="proj">
