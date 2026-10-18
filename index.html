@@ -1,470 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan Prudhvi Madhamsetty | Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text-gray: #64748b;
-            --bg-card: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            /* Min-height ensures the bar stays the right size even with no text */
-            min-height: 1.5rem; 
-            min-width: 50px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        header {
-            height: 90vh; /* Slightly reduced to show content below */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 1rem;
-            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
-            margin-top: 60px; /* Offset for fixed nav */
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .social-links {
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-	    text-decoration: none;
-            color: var(--text-gray);
-            font-size: 1.8rem; /* Slightly larger icons */
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Sections General */
-        section {
-            padding: 5rem 10%;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-text {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: justify;
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--primary);
-        }
-
-        .role {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .company {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* Projects Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            padding: 2rem;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .tech-stack {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: #e0e7ff;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* Skills Structure */
-        .skills-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 0.5rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-pill {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            section { padding: 3rem 5%; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pavan Prudhvi Madhamsetty</title>
+<meta name="description" content="Pavan Prudhvi Madhamsetty is a software engineer building backend services and LLM features. MS Computer Science, University of Florida. Open to full-time roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo"></div> <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-        </div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Pavan Prudhvi <span>Madhamsetty</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#resume">Resume</a>
     </nav>
+  </div>
+</header>
 
-    <header>
-        <div class="hero-content">
-            <h1>Pavan Prudhvi Madhamsetty</h1>
-            <p>Master's Student in Computer Science @ UF | Ex-Software Developer</p>
-            <a href="mailto:pavanprudhvi02@gmail.com" class="btn">Contact Me</a>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/pavan-prudhvi-ba497b191/" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/pavanprudhvi02" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:pavanprudhvi02@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status"><i aria-hidden="true"></i>Open to full-time software engineering roles</span>
+        <h1>Pavan Prudhvi Madhamsetty</h1>
+        <p class="lede">Software engineer building <em>backend services</em> and the <em>LLM features</em> that run on top of them.</p>
+        <div class="meta">
+          <span>MS Computer Science, University of Florida</span>
+          <span>2.5 years at Dhurin Data Sciences and Mavenir</span>
+          <span>United States, open to relocation</span>
         </div>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-text">
-            <p>
-                I’m a versatile technologist with a passion for building scalable software and deriving actionable insights from data. With a Bachelor's in Computer Science from Vellore Institute of Technology and currently pursuing a Master’s in Computer Science at the University of Florida, I bring a blend of software engineering and data analysis skills to every challenge I take on. Over the past 2+ years, I’ve worked on full-stack applications, REST APIs, and AI-integrated platforms using technologies like Python, JavaScript, Django, Flask, Node.js, and Go. I’ve also implemented data pipelines, dashboards, and ML models to drive insights in domains like finance and healthcare—translating complex data into simple, impactful decisions. I'm deeply interested in solving real-world problems, whether through writing clean, efficient code or analyzing data trends to inform business strategy. I'm equally comfortable collaborating with engineering teams or working alongside business stakeholders to build user-centric solutions.
-            </p>
+        <div class="actions">
+          <a class="btn primary" href="#resume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+            View resume</a>
+          <a class="btn" href="https://www.linkedin.com/in/pavan-prudhvi-ba497b191" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75V21h-4v-5.2c0-1.24-.02-2.84-1.8-2.84-1.8 0-2.08 1.35-2.08 2.75V21h-4z"/></svg>
+            LinkedIn</a>
+          <a class="btn" href="https://github.com/pavanprudhvi02" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+            GitHub</a>
         </div>
-    </section>
+      </div>
 
-    <section id="experience" style="background: #f8fafc;">
-        <h2>Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="role">Software Developer Trainee</div>
-                <div class="company">Dhurin Data Sciences Pvt Ltd</div>
-                <span class="date">Sep 2023 – July 2024</span>
-                <p>• Extracted actionable insights from 500GB+ datasets using advanced data engineering, improving decision accuracy by 40%.<br>
-                • Implemented credit risk algorithms helping clients avoid $2M+ in losses.<br>
-                • Optimized API performance, improving response time by 50%.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="role">Software Engineering Intern</div>
-                <div class="company">Mavenir Systems, Inc.</div>
-                <span class="date">Jan 2022 – July 2022</span>
-                <p>• Developed 12+ REST APIs using Python Flask for telecom integration.<br>
-                • Built automated anomaly detection system reducing false positive alerts by 35%.</p>
-            </div>
+      <figure class="agent" aria-label="Illustration of a plain-English to SQL agent loop">
+        <div class="bar"><span class="dots"><b></b><b></b><b></b></span><span>react-sql-agent</span></div>
+        <div class="step"><span class="k">question</span><span class="q">"Which branches had the most loan applications last quarter?"</span></div>
+        <div class="step"><span class="k">thought</span><span>Need the applications table, grouped by branch, filtered to the last quarter.</span></div>
+        <div class="step"><span class="k">action</span><pre><span class="kw">SELECT</span> branch, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> apps
+<span class="kw">FROM</span> loan_applications
+<span class="kw">WHERE</span> created_at &gt;= <span class="q">'2026-07-01'</span>
+<span class="kw">GROUP BY</span> branch
+<span class="kw">ORDER BY</span> apps <span class="kw">DESC LIMIT</span> 5;</pre></div>
+        <div class="step"><span class="k">answer</span><span>Top 5 branches by application count, returned as a table.</span></div>
+        <figcaption class="note">An illustration of the ReAct pattern behind the LangChain SQL agent I built at Dhurin. The question and schema here are invented examples.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="label"><h2>About</h2></div>
+      <div class="about">
+        <div class="prose">
+          <p>I'm a software engineer who builds backend services and the AI features that sit on top of them. I finished my MS in Computer Science at the University of Florida in May 2026, after about two and a half years as a software developer at Dhurin Data Sciences and Mavenir.</p>
+          <p>At Dhurin I worked on LLM products for enterprise clients: a LangChain agent that answers plain-English questions with SQL, a retrieval-augmented chatbot on Azure OpenAI, and the Flask backend behind a WhatsApp and Slack messaging platform. I also built credit risk models for a banking client. At Mavenir I wrote Spring Boot APIs in Java, tuned MySQL, and built outlier detection for service monitoring.</p>
+          <p>Outside work I like to build things end to end, from a live Next.js app to a Raft-replicated key-value store in C++. I'm looking for full-time roles in backend, AI/ML and data engineering, and I'm especially drawn to healthcare and social-impact work.</p>
         </div>
-    </section>
+        <dl class="facts">
+          <div><dt>Focus</dt><dd>Backend APIs, LLM agents and RAG, data and ML</dd></div>
+          <div><dt>Core stack</dt><dd>Python, Java, SQL, Flask, Spring Boot, LangChain</dd></div>
+          <div><dt>Education</dt><dd>MS CS, University of Florida (GPA 3.8)</dd></div>
+          <div><dt>Location</dt><dd>United States, open to relocation</dd></div>
+          <div><dt>Looking for</dt><dd>Full-time Software Engineer, Backend, AI/ML Engineer</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Agile E-Commerce App</h3>
-                <p>A scalable full-stack platform engineered with Server-Side Rendering (SSR) to cut page load latency by 40%.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Stripe API</span>
-                </div>
-            </div>
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="label"><h2>Experience</h2><p>About 2.5 years of professional software development.</p></div>
+      <div class="jobs">
+        <article class="job">
+          <header>
+            <div><h3>Dhurin Data Sciences</h3><p class="role">Software Engineer · Noida, India</p></div>
+            <span class="when">Jan 2023 – Jul 2024</span>
+          </header>
+          <ul>
+            <li>Developed a LangChain ReAct agent on GPT-3.5 that turns plain-English questions into SQL queries against enterprise data for multiple enterprise clients.</li>
+            <li>Shipped a retrieval-augmented chatbot on Azure OpenAI that grounds GPT responses in context retrieved through vector embeddings.</li>
+            <li>Wrote the Flask backend for a multi-client conversational platform, with one unified webhook handler integrating the Twilio WhatsApp and Slack APIs.</li>
+            <li>Prepared large banking transaction datasets with pandas and NumPy, used SMOTE to correct class imbalance, and trained XGBoost and Random Forest credit risk models.</li>
+            <li>Reported model results through Power BI dashboards and Excel (Pivot Tables, VBA), and automated recurring financial reports in Python with Matplotlib and NumPy.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">GPT-3.5</span><span class="tag">Azure OpenAI</span><span class="tag">Flask</span><span class="tag">Twilio</span><span class="tag">XGBoost</span><span class="tag">pandas</span><span class="tag">Power BI</span></div>
+        </article>
+        <article class="job">
+          <header>
+            <div><h3>Mavenir Systems</h3><p class="role">Software Engineer · Bangalore, India</p></div>
+            <span class="when">May 2021 – Jul 2022</span>
+          </header>
+          <ul>
+            <li>Built Spring Boot REST APIs in Java on AWS EC2 to handle 5,000+ concurrent sessions, and set up a pytest and Postman testing framework that reached 80% code coverage.</li>
+            <li>Optimized MySQL query performance with composite indexes for frequent query patterns, cutting query time by roughly 30%, and migrated high-throughput tables to SingleStore.</li>
+            <li>Implemented two outlier detectors with Seldon Alibi Detect for service monitoring: a variational autoencoder trained on CIFAR-10 images and a Spectral Residual time-series model.</li>
+            <li>Tuned detection thresholds with F1 scores and confusion matrices to reduce false-positive alerts, and monitored the services in Azure Application Insights.</li>
+          </ul>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">AWS EC2</span><span class="tag">MySQL</span><span class="tag">SingleStore</span><span class="tag">Alibi Detect</span><span class="tag">pytest</span><span class="tag">Postman</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            <div class="project-card">
-                <h3>AI Mock Interview Platform</h3>
-                <p>Interview prep tool integrated with Google Gemini API, achieving 92% question relevance and low latency.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">React.js</span>
-                    <span class="tech-tag">Google Gemini API</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                </div>
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="label"><h2>Projects</h2><p>Things I built end to end, newest first.</p></div>
+      <div>
+        <div class="featured">
+          <article class="proj wide">
+            <div class="head"><div><div class="kind">Live product · Take-home for a startup</div><h3>Turnout Planner</h3></div><span class="when">Fall 2025</span></div>
+            <div class="cols">
+              <p>A daily turnout board for barn operations. Staff set up horses and turnout spaces, build recurring turnout groups, and run the day from a live board. I scoped it to a finished product and wrote a one-page product memo alongside the code.</p>
+              <ul>
+                <li>Recurring schedules auto-generate daily turnout events, with drag-and-drop reassignment (touch supported), bulk actions, an overdue-reminders bell and a weather widget.</li>
+                <li>Every mutation goes through Next.js Server Actions; ON DELETE RESTRICT foreign keys block orphaned records; dates are pinned to UTC for consistent rendering.</li>
+                <li>Deliberately left out multi-barn support, billing and login to ship something complete.</li>
+              </ul>
             </div>
+            <div class="links"><a href="https://turnout-planner-pavan-prudhvi.vercel.app" target="_blank" rel="noopener">Open the live app <span class="arr" aria-hidden="true">↗</span></a></div>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Prisma</span><span class="tag">PostgreSQL (Neon)</span><span class="tag">Tailwind CSS</span><span class="tag">shadcn/ui</span><span class="tag">@dnd-kit</span><span class="tag">Vercel</span></div>
+          </article>
 
-            <div class="project-card">
-                <h3>FinTrack Finance Manager</h3>
-                <p>Full-stack finance app with secure Google OAuth 2.0 and JWT session management for budget tracking.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Angular</span>
-                    <span class="tech-tag">Go/Gin</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                </div>
-            </div>
+          <article class="proj">
+            <div class="head"><div><div class="kind">Distributed systems · UF</div><h3>Distributed Key-Value Store</h3></div><span class="when">Spring 2025</span></div>
+            <p>A sharded key-value store in C++. Keys are partitioned with consistent hashing and each shard is replicated with Raft consensus.</p>
+            <ul>
+              <li>LSM-tree storage engine and a thread-pool request layer synchronized with mutexes.</li>
+              <li>gRPC and Protocol Buffers between nodes; Google Test suites cover behavior under network partitions.</li>
+            </ul>
+            <div class="tags"><span class="tag">C++17/20</span><span class="tag">Raft</span><span class="tag">gRPC</span><span class="tag">Protocol Buffers</span><span class="tag">LSM-tree</span><span class="tag">CMake</span><span class="tag">Google Test</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="head"><div><div class="kind">Low-latency systems · UF</div><h3>Limit Order Book Matching Engine</h3></div><span class="when">Spring 2025</span></div>
+            <p>An order matching engine in C++20 that keeps price-time priority using a hash map plus ordered price levels.</p>
+            <ul>
+              <li>Pre-allocated memory pool to avoid allocation on the hot path.</li>
+              <li>Lock-free single-producer, single-consumer ring buffers between stages; profiled with Valgrind and Cachegrind.</li>
+            </ul>
+            <div class="tags"><span class="tag">C++20</span><span class="tag">Lock-free SPSC</span><span class="tag">Memory pools</span><span class="tag">Valgrind</span><span class="tag">Cachegrind</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="head"><div><div class="kind">Microservices · UF</div><h3>Event-Driven Order Orchestrator</h3></div><span class="when">Spring 2026</span></div>
+            <p>An e-commerce backend split into Order, Payment and Inventory services that keeps data consistent across services with the Saga pattern.</p>
+            <ul>
+              <li>Compensating transactions undo earlier steps when a later step fails.</li>
+              <li>Services talk over an event bus, each with its own PostgreSQL database, behind an API gateway with Redis rate limiting.</li>
+            </ul>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="head"><div><div class="kind wip">In progress</div><h3>REACH</h3></div><span class="when">Fall 2025</span></div>
+            <p>A CPU-only distributed AI inference demo: llama.cpp model workers with GGUF weights, orchestrated by a Spring Boot service on a local Kubernetes cluster.</p>
+            <ul>
+              <li>Resilience4j adds timeouts and circuit breaking between the orchestrator and the workers.</li>
+              <li>Deployed on a local Kubernetes cluster with Kind or Minikube.</li>
+            </ul>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span><span class="tag">llama.cpp</span><span class="tag">Kubernetes</span><span class="tag">Resilience4j</span></div>
+          </article>
         </div>
-    </section>
 
-    <section id="skills" style="background: #f1f5f9;">
-        <h2>Technical Skills</h2>
-        <div class="skills-wrapper">
-            
-            <div class="skill-category">
-                <h3>Programming & Scripting</h3>
-                <div class="skill-list">
-                    <div class="skill-pill">Python</div>
-                    <div class="skill-pill">Java</div>
-                    <div class="skill-pill">JavaScript</div>
-                    <div class="skill-pill">C</div>
-                    <div class="skill-pill">C++</div>
-                    <div class="skill-pill">R</div>
-                    <div class="skill-pill">HTML5</div>
-                    <div class="skill-pill">CSS</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <div class="skill-list">
-                    <div class="skill-pill">MySQL</div>
-                    <div class="skill-pill">SingleStore</div>
-                    <div class="skill-pill">PostgreSQL</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Frameworks</h3>
-                <div class="skill-list">
-                    <div class="skill-pill">Django</div>
-                    <div class="skill-pill">Flask</div>
-                    <div class="skill-pill">Node.js</div>
-                    <div class="skill-pill">React</div>
-                    <div class="skill-pill">Angular</div>
-                    <div class="skill-pill">REST</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Tools</h3>
-                <div class="skill-list">
-                    <div class="skill-pill">VS Code</div>
-                    <div class="skill-pill">Jupyter</div>
-                    <div class="skill-pill">Postman</div>
-                    <div class="skill-pill">Tableau</div>
-                    <div class="skill-pill">Git</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Cloud, DevOps, AI</h3>
-                <div class="skill-list">
-                    <div class="skill-pill">Amazon EC2</div>
-                    <div class="skill-pill">Large Language Models</div>
-                    <div class="skill-pill">Azure</div>
-                    <div class="skill-pill">Docker</div>
-                    <div class="skill-pill">Kubernetes</div>
-                    <div class="skill-pill">Git</div>
-                    <div class="skill-pill">Jira</div>
-                    <div class="skill-pill">OpenAI API</div>
-                    <div class="skill-pill">Hugging Face</div>
-                </div>
-            </div>
-
+        <div class="more">
+          <h3>More projects</h3>
+          <ol>
+            <li><strong>FinTrack</strong><span class="when">Spring 2025</span><p>A personal finance tracker with an Angular frontend, a Go (Gin) backend, PostgreSQL storage and OAuth 2.0 sign-in. <a href="https://github.com/anina512/FinTrack" target="_blank" rel="noopener">View on GitHub <span class="arr" aria-hidden="true">↗</span></a></p><span class="stack">Angular · Go · Gin · PostgreSQL · OAuth 2.0</span></li>
+            <li><strong>Doc Play</strong><span class="when">Spring 2025</span><p>A retrieval-augmented generation platform built with LangChain, the OpenAI API and vector embeddings.</p><span class="stack">Python · LangChain · OpenAI API · vector embeddings</span></li>
+            <li><strong>E-Commerce A/B Testing Platform</strong><span class="when">Fall 2024</span><p>A platform for running A/B experiments on an online store, with an ASP.NET Core backend, a React frontend and a GraphQL API over PostgreSQL and SQL Server.</p><span class="stack">C# · ASP.NET Core · React · GraphQL · PostgreSQL · SQL Server</span></li>
+            <li><strong>Cross-Platform Test Automation Framework</strong><span class="when">Fall 2023</span><p>Regression suites for web and mobile, with Selenium WebDriver for browser flows, Appium for mobile flows, and JUnit organizing and running the tests.</p><span class="stack">Java · Selenium · Appium · JUnit</span></li>
+            <li><strong>Face Emotion Recognition and Liveness Detection</strong><span class="when">Spring 2021</span><p>Trained convolutional networks of different depths on grayscale facial-expression images from Kaggle; the CNNs trained on raw pixels outperformed a hybrid-feature approach. Added action-based liveness detection with OpenCV and dlib.</p><span class="stack">Python · PyTorch · TensorFlow/Keras · OpenCV · dlib</span></li>
+            <li><strong>Flight Fare Prediction on Hadoop</strong><span class="when">Spring 2021</span><p>Loaded a 10,684-row flight dataset from Kaggle into HDFS on Linux and trained regression models to predict ticket prices.</p><span class="stack">Hadoop · HDFS · Python · regression · Linux</span></li>
+            <li><strong>Stock Price Prediction</strong><span class="when">VIT</span><p>A large-scale data processing project on stock price data, built and run in an Ubuntu environment with Bash for the full semester.</p><span class="stack">Python · Linux · Bash</span></li>
+          </ol>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="timeline">
-            <div class="timeline-item" style="border-left-color: #0f172a;">
-                <div class="role">Master's in Computer Science</div>
-                <div class="company">University of Florida</div>
-                <span class="date">Expected May 2026 | GPA: 3.8/4.0</span>
-            </div>
-            <div class="timeline-item" style="border-left-color: #0f172a;">
-                <div class="role">B.Tech in Computer Science</div>
-                <div class="company">Vellore Institute of Technology</div>
-                <span class="date">May 2023 | GPA: 7.9/10</span>
-            </div>
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="label"><h2>Skills</h2><p>Highlighted skills are ones I used in professional work.</p></div>
+      <div class="skills">
+        <div><h3>Languages</h3><div class="tags"><span class="tag core">Python</span><span class="tag core">Java</span><span class="tag core">SQL</span><span class="tag">TypeScript</span><span class="tag">C++</span><span class="tag">Go</span><span class="tag">C#</span><span class="tag">JavaScript</span></div></div>
+        <div><h3>Backend and APIs</h3><div class="tags"><span class="tag core">Flask</span><span class="tag core">Spring Boot</span><span class="tag core">REST APIs</span><span class="tag core">Webhooks</span><span class="tag">Next.js</span><span class="tag">ASP.NET Core</span><span class="tag">gRPC</span><span class="tag">GraphQL</span></div></div>
+        <div><h3>AI and machine learning</h3><div class="tags"><span class="tag core">LangChain</span><span class="tag core">Azure OpenAI</span><span class="tag core">OpenAI API</span><span class="tag core">RAG</span><span class="tag core">Vector embeddings</span><span class="tag core">XGBoost</span><span class="tag core">scikit-learn</span><span class="tag core">Alibi Detect</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span></div></div>
+        <div><h3>Data and analytics</h3><div class="tags"><span class="tag core">pandas</span><span class="tag core">NumPy</span><span class="tag core">Matplotlib</span><span class="tag core">Power BI</span><span class="tag core">Tableau</span><span class="tag core">Excel (Pivot Tables, VBA)</span></div></div>
+        <div><h3>Databases</h3><div class="tags"><span class="tag core">MySQL</span><span class="tag core">SingleStore</span><span class="tag">PostgreSQL</span><span class="tag">SQL Server</span><span class="tag">Prisma</span></div></div>
+        <div><h3>Cloud, systems and testing</h3><div class="tags"><span class="tag core">AWS EC2</span><span class="tag core">Azure</span><span class="tag core">pytest</span><span class="tag core">Postman</span><span class="tag core">Git</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Vercel</span><span class="tag">Raft</span><span class="tag">Google Test</span><span class="tag">JUnit</span><span class="tag">Selenium</span></div></div>
+        <div class="legend"><span><i class="core"></i>Used at work</span><span><i></i>Used in projects</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="label"><h2>Education</h2></div>
+      <div class="edu">
+        <article class="school">
+          <header><div><h3>University of Florida</h3><p class="deg">Master of Science in Computer Science · GPA 3.8/4.0</p></div><span class="when">Aug 2024 – May 2026</span></header>
+          <p class="extra">Graduate projects in distributed systems, low-latency C++ and microservices; coursework included Distributed Multimedia Systems and Engineering Leadership.</p>
+        </article>
+        <article class="school">
+          <header><div><h3>Vellore Institute of Technology</h3><p class="deg">Bachelor of Technology in Computer Science and Engineering</p></div><span class="when">Jul 2019 – Aug 2023</span></header>
+          <p class="extra">Ranked about 3,000 in India on JEE Advanced, the national IIT entrance exam.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="resume">
+    <div class="wrap">
+      <div class="label"><h2>Resume</h2><p>One page, updated October 2026.</p></div>
+      <div class="resume">
+        <a class="sheet" href="assets/Pavan_Prudhvi_Madhamsetty_Resume.pdf" target="_blank" rel="noopener" aria-label="Open the resume PDF">
+          <img src="assets/resume-preview.png" alt="Preview of Pavan Prudhvi Madhamsetty's one-page resume" width="935" height="1210">
+        </a>
+        <div class="side">
+          <h3>Standard resume</h3>
+          <p>My general software engineering resume, covering backend, AI and data work. I tailor a version for each role I apply to.</p>
+          <ul class="checklist">
+            <li>Education, skills, both roles and two projects on one page</li>
+            <li>Plain layout that applicant tracking systems read cleanly</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="assets/Pavan_Prudhvi_Madhamsetty_Resume.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Open resume PDF</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 Pavan Prudhvi Madhamsetty. Built with HTML & CSS.</p>
-    </footer>
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="label"><h2>Contact</h2></div>
+      <div class="contact">
+        <h3>Hiring for backend, AI or data roles? I'd like to hear about it.</h3>
+        <div class="row">
+          <div class="card"><span class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</span><span class="val" id="email-addr">pavanprudhvi02@gmail.com</span><button type="button" id="copy-email">Copy address</button></div>
+          <div class="card"><span class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-.95 1.83-1.950 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75V21h-4v-5.2c0-1.24-.02-2.84-1.8-2.84-1.8 0-2.08 1.35-2.08 2.75V21h-4z"/></svg>LinkedIn</span><a class="val" href="https://www.linkedin.com/in/pavan-prudhvi-ba497b191" target="_blank" rel="noopener">pavan-prudhvi</a></div>
+          <div class="card"><span class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.370-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.020a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</span><a class="val" href="https://github.com/pavanprudhvi02" target="_blank" rel="noopener">pavanprudhvi02</a></div>
+          <div class="card"><span class="eyebrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg>LeetCode</span><a class="val" href="https://leetcode.com/u/pavanprudhvi/" target="_blank" rel="noopener">pavanprudhvi</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Pavan Prudhvi Madhamsetty</span><nav class="social" aria-label="Profiles"><a href="https://www.linkedin.com/in/pavan-prudhvi-ba497b191" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-.95 1.83-1.950 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75V21h-4v-5.2c0-1.24-.02-2.84-1.8-2.84-1.8 0-2.08 1.35-2.08 2.75V21h-4z"/></svg></a><a href="https://github.com/pavanprudhvi02" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.370-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.020a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a><a href="https://leetcode.com/u/pavanprudhvi/" target="_blank" rel="noopener" aria-label="LeetCode" title="LeetCode"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg></a><a href="mailto:pavanprudhvi02@gmail.com" aria-label="Email" title="Email"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></nav><span>Last updated October 2026</span></div>
+</footer>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>
