@@ -174,13 +174,14 @@
           </article>
 
           <article class="proj">
-            <div class="head"><div><div class="kind wip">In progress</div><h3>REACH</h3></div><span class="when">Fall 2025</span></div>
-            <p>A CPU-only distributed AI inference demo: llama.cpp model workers with GGUF weights, orchestrated by a Spring Boot service on a local Kubernetes cluster.</p>
+            <div class="head"><div><div class="kind">AI infrastructure</div><h3>REACH</h3></div><span class="when">Fall 2026</span></div>
+            <p>A Spring Boot orchestrator that serves LLM chat requests from a pool of CPU-only llama.cpp workers running GGUF models, behind an OpenAI-compatible API.</p>
             <ul>
-              <li>Resilience4j adds timeouts and circuit breaking between the orchestrator and the workers.</li>
-              <li>Deployed on a local Kubernetes cluster with Kind or Minikube.</li>
+              <li>Routes to the least-loaded healthy worker and fails over on crashes, timeouts and errors, with a Resilience4j circuit breaker per worker.</li>
+              <li>Streams tokens over server-sent events; deployed with Docker Compose and Kubernetes, and CI kills a real model worker to prove no request fails.</li>
             </ul>
-            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span><span class="tag">llama.cpp</span><span class="tag">Kubernetes</span><span class="tag">Resilience4j</span></div>
+            <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">llama.cpp</span><span class="tag">Resilience4j</span><span class="tag">Kubernetes</span><span class="tag">Prometheus</span></div>
+            <div class="links"><a href="https://github.com/pavanprudhvi02/reach" target="_blank" rel="noopener">View on GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
           </article>
         </div>
 
